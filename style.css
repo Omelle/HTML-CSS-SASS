@@ -1,0 +1,182 @@
+@import url(header.css);
+@import url(nav.css);
+/*ce lien permet d'importer une autre balise de css  */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+/* Pour que le navigateur ne fasse plus de scroll bar  */
+
+/* Les flexboxs */
+main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgb(1, 44, 44);
+}
+
+#triangle {
+  background: rgb(1, 44, 44);
+  clip-path: polygon(50% 0, 0 100%, 100% 100%);
+  min-height: 5vh;
+  margin-top: -5vh;
+  position: relative;
+  top: 1px;
+}
+#triangle > h3 {
+  display: none;
+}
+
+main > section {
+  width: 100vw;
+  /* margin: auto; */
+  display: flex;
+  /* Spécifie comment les éléments flexibles sont placés dans le conteneur flexible, en définissant la direction de l'axe principal du conteneur flexible.*/
+  flex-direction: row;
+  flex-wrap: wrap;
+} /* C'est une valeur par défaut*/
+
+section > article {
+  flex: 1;
+  /* height: 500px; */
+  min-width: 280px;
+}
+
+#slide {
+  height: 500px;
+}
+
+/* les flex ne sont pas des positionnements */
+
+/* Contrôle l'ordre dans lequel les enfants d'un conteneur flexible apparaissent dans le conteneur flexible, en les affectant à des groupes ordinaux.
+Syntaxe : <entier> */
+
+@media screen and (max-width: 716px) {
+}
+/*Aligne les éléments flexibles le long de l'axe transversal de la ligne actuelle du conteneur flexible.
+Syntaxe : normale | étirer | <position de base> | [ <position-débordement> ? <position personnelle> ]*/
+
+.picto {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+  padding: 10px;
+}
+
+main > section :is(h2, h3, p) {
+  color: aliceblue;
+  position: relative;
+  top: 15px;
+  display: block;
+  width: 100vw;
+  text-align: center;
+  font-family: var(--p);
+}
+
+main > section > .picto > a > h3 {
+  font-size: 25px;
+  margin: 10px 0;
+}
+
+.rond {
+  background: whitesmoke;
+  width: 60px;
+  height: 60px;
+  display: block;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 60px;
+}
+
+p > span {
+  color: aqua;
+  border-bottom: 1px solid aqua;
+  display: block;
+  margin: 20px auto; /* ATTENTION ON NE PEUT PAS METTRE DEUX BALISES MARGIN*/ /* Grâce à span le boutuon sera décaler*/
+}
+
+.wm {
+  width: 200px;
+}
+
+.picture {
+  height: 400px;
+  flex:1;
+  min-width:480px;
+  margin:10px;
+  position:relative;/* C'est pour éviter qu'il utilise comme point de départ le body*/
+  overflow:hidden; /* tous ce qui est à l'extérieur de l'image le cadre ne prends pas en compte */
+}
+
+.picture:hover>ul{top:0;}
+
+.picture>ul{
+  /*Ces éléments la sont avant tout des li*/
+  transition:left .5s linear;
+  position:absolute;
+  top: 400px; /* Pour cacher  */
+  width:100vw;
+  height: 400px;
+  background:rgba(0, 128, 128, 0.7);
+  display: flex;
+justify-content:center;
+align-items: center;
+list-style:none;
+} 
+
+.picture>ul>li:first-child{margin-right:10px;} /*Permet de décalé les boutons que nous avons creer*/
+
+@media screen and (max-width:480px) {
+  .picture {
+    height: 400px;
+    flex:1;
+    min-width:260px;
+    margin:10px;
+    position:relative;
+    overflow:hidden;}
+}
+/* Modifier*/
+
+#photo1 {
+  background: url(../images/pexels-paul-ijsendoorn-33041.jpg) 40% 0 no-repeat;
+  background-size: cover;
+}
+
+#photo2 {
+  background: url(../images/pexels-brady-knoll-5409751.jpg) 40% 0 no-repeat;
+  background-size: cover;
+}
+
+#photo3{
+  background: url(../images/pexels-frans-van-heerden-624015.jpg) 40% 0 no-repeat;
+  background-size: cover;
+}
+#photo4{
+  background: url(../images/pexels-s-migaj-1402850.jpg) 40% 0 no-repeat;
+  background-size: cover;
+}
+
+/* Que les images apparaissent devant le site et que l'utilisateur a la possibilité d'enlver l'images
+#img1{width: 80%; 
+  height:30vh;
+position:fixed;
+background:teal;
+z-index:80;
+top:20vh;
+transition: left 1s linear;} 
+
+#img>img{max-width:100%;
+min-width:100%;}
+
+#imag1:not(:target){ /* L'image ne doit pas être visible*/
+  /* left:-100%;
+}
+
+#imag1:target{
+  left: 10%;
+} */ 
